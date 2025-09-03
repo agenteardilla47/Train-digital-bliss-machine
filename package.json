@@ -1,0 +1,68 @@
+{
+  "name": "tecs-desktop",
+  "version": "1.0.0",
+  "description": "Thermodynamic Ephemeral Cognition System - Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "tecs",
+    "cryptographic-forgetting",
+    "thermodynamics",
+    "ai",
+    "privacy",
+    "security"
+  ],
+  "author": "The Commons Research Initiative",
+  "license": "Public Domain",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "python-shell": "^5.0.0",
+    "node-pty": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.commons.tecs-desktop",
+    "productName": "TECS Desktop",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "!dist/**/*",
+      "!build/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "cf",
+        "to": "cf"
+      },
+      {
+        "from": "requirements_minimal.txt",
+        "to": "requirements_minimal.txt"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  }
+}
