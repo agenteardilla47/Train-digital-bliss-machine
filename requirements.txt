@@ -1,32 +1,22 @@
-# Core dependencies
+# Core dependencies - only what's actually imported
 numpy>=1.21.0
 scipy>=1.7.0
-scikit-learn>=1.0.0
 torch>=1.9.0
 cryptography>=3.4.0
 
-# Information bottleneck and mutual information estimation
-mine-pytorch>=0.1.0
-
-# Zero-knowledge proofs (placeholder for Groth16 implementation)
-py_ecc>=5.2.0
-
-# Secure random number generation
-secrets>=3.0.0
-
-# Memory management and system calls
-psutil>=5.8.0
-
-# Testing and development
+# Testing and development (optional)
 pytest>=6.2.0
 pytest-cov>=2.12.0
-black>=21.0.0
-flake8>=3.9.0
 
-# Documentation
-sphinx>=4.0.0
-sphinx-rtd-theme>=0.5.0
-
-# Performance monitoring
+# Performance monitoring (optional)
 memory-profiler>=0.58.0
-line-profiler>=3.3.0
+
+# Note: Removed problematic dependencies:
+# - mine-pytorch (not needed - custom implementation exists)
+# - py_ecc (not imported anywhere)
+# - scikit-learn (not imported)
+# - secrets (built-in Python module)
+# - psutil (not imported)
+# - black, flake8 (development tools)
+# - sphinx (documentation - not needed for runtime)
+# - line-profiler (not imported)
