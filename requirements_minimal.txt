@@ -1,0 +1,10 @@
+# Minimal requirements for CF framework testing
+# These are the core dependencies that are actually imported
+
+numpy>=1.21.0
+scipy>=1.7.0
+torch>=1.9.0
+cryptography>=3.4.0
+
+# Optional: Testing framework
+pytest>=6.2.0

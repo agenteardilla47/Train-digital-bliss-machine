@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECS Desktop - Thermodynamic Ephemeral Cognition System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <i class="fas fa-brain logo-icon"></i>
+                    <h1>TECS Desktop</h1>
+                    <span class="version">v1.0.0</span>
+                </div>
+                <div class="header-actions">
+                    <div class="python-status" id="pythonStatus">
+                        <i class="fas fa-circle status-indicator"></i>
+                        <span class="status-text">Checking Python...</span>
+                    </div>
+                    <button class="btn btn-secondary" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Navigation Tabs -->
+            <nav class="nav-tabs">
+                <button class="tab-btn active" data-tab="tecs">
+                    <i class="fas fa-fire"></i>
+                    TECS Protocol
+                </button>
+                <button class="tab-btn" data-tab="cf">
+                    <i class="fas fa-shield-alt"></i>
+                    CF Framework
+                </button>
+                <button class="tab-btn" data-tab="monitor">
+                    <i class="fas fa-chart-line"></i>
+                    System Monitor
+                </button>
+                <button class="tab-btn" data-tab="about">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                </button>
+            </nav>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- TECS Protocol Tab -->
+                <div class="tab-pane active" id="tecs-tab">
+                    <div class="protocol-container">
+                        <div class="protocol-header">
+                            <h2><i class="fas fa-fire"></i> Thermodynamic Ephemeral Cognition System</h2>
+                            <p>Execute the TECS protocol to create thermodynamically forbidden transformations</p>
+                        </div>
+
+                        <div class="input-section">
+                            <div class="input-group">
+                                <label for="tecsSourceData">Source Data</label>
+                                <textarea id="tecsSourceData" placeholder="Enter your source material here...&#10;&#10;Example:&#10;This is a collaborative poem that will be processed through the TECS protocol to create a thermodynamically forbidden transformation." rows="8"></textarea>
+                            </div>
+
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="tecsCollaboratorType">Collaborator Type</label>
+                                    <select id="tecsCollaboratorType">
+                                        <option value="human_ai_collaboration">Human-AI Collaboration</option>
+                                        <option value="creative_writing">Creative Writing</option>
+                                        <option value="scientific_research">Scientific Research</option>
+                                        <option value="business_analysis">Business Analysis</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="tecsCollaboratorEntropy">Collaborator Entropy</label>
+                                    <input type="range" id="tecsCollaboratorEntropy" min="0" max="1" step="0.1" value="0.8">
+                                    <span class="range-value" id="tecsEntropyValue">0.8</span>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="tecsSecurityLevel">Security Level</label>
+                                    <select id="tecsSecurityLevel">
+                                        <option value="128">Standard (128-bit)</option>
+                                        <option value="256" selected>High (256-bit)</option>
+                                        <option value="512">Ultra (512-bit)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary btn-large" id="executeTecsBtn">
+                                <i class="fas fa-play"></i>
+                                Execute TECS Protocol
+                            </button>
+                        </div>
+
+                        <div class="results-section" id="tecsResults" style="display: none;">
+                            <h3>Results</h3>
+                            <div class="results-grid">
+                                <div class="result-card">
+                                    <h4>Generated Output</h4>
+                                    <div class="output-display" id="tecsOutput"></div>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <h4>Thermodynamic Metrics</h4>
+                                    <div class="metrics-grid">
+                                        <div class="metric">
+                                            <span class="metric-label">Cognitive Temperature:</span>
+                                            <span class="metric-value" id="tecsTemp"></span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Entropy Gradient:</span>
+                                            <span class="metric-value" id="tecsEntropy"></span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Phase Trace:</span>
+                                            <span class="metric-value" id="tecsPhase"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>Security Information</h4>
+                                    <div class="security-info">
+                                        <div class="security-item">
+                                            <span class="security-label">Resonance Commitment:</span>
+                                            <span class="security-value" id="tecsResonance"></span>
+                                        </div>
+                                        <div class="security-item">
+                                            <span class="security-label">Thermodynamic Root:</span>
+                                            <span class="security-value" id="tecsRoot"></span>
+                                        </div>
+                                        <div class="security-item">
+                                            <span class="security-label">Deletion Proofs:</span>
+                                            <span class="security-value" id="tecsProofs"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>Performance Metrics</h4>
+                                    <div class="performance-metrics" id="tecsPerformance"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CF Framework Tab -->
+                <div class="tab-pane" id="cf-tab">
+                    <div class="protocol-container">
+                        <div class="protocol-header">
+                            <h2><i class="fas fa-shield-alt"></i> Cryptographic Forgetting Framework</h2>
+                            <p>Execute the CF protocol to provably destroy source material while preserving functional intent</p>
+                        </div>
+
+                        <div class="input-section">
+                            <div class="input-group">
+                                <label for="cfSourceData">Source Data</label>
+                                <textarea id="cfSourceData" placeholder="Enter your source material here...&#10;&#10;Example:&#10;This text will be processed through the CF framework to create a provably secure transformation." rows="8"></textarea>
+                            </div>
+
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="cfTaskType">Task Type</label>
+                                    <select id="cfTaskType">
+                                        <option value="text_generation" selected>Text Generation</option>
+                                        <option value="classification">Classification</option>
+                                        <option value="translation">Translation</option>
+                                        <option value="summarization">Summarization</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="cfRegularization">Regularization</label>
+                                    <select id="cfRegularization">
+                                        <option value="l2" selected>L2</option>
+                                        <option value="l1">L1</option>
+                                        <option value="none">None</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="cfSecurityLevel">Security Level</label>
+                                    <select id="cfSecurityLevel">
+                                        <option value="128">Standard (128-bit)</option>
+                                        <option value="256" selected>High (256-bit)</option>
+                                        <option value="512">Ultra (512-bit)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary btn-large" id="executeCfBtn">
+                                <i class="fas fa-play"></i>
+                                Execute CF Protocol
+                            </button>
+                        </div>
+
+                        <div class="results-section" id="cfResults" style="display: none;">
+                            <h3>Results</h3>
+                            <div class="results-grid">
+                                <div class="result-card">
+                                    <h4>Generated Output</h4>
+                                    <div class="output-display" id="cfOutput"></div>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <h4>Security Information</h4>
+                                    <div class="security-info">
+                                        <div class="security-item">
+                                            <span class="security-label">Proof Size:</span>
+                                            <span class="security-value" id="cfProofSize"></span>
+                                        </div>
+                                        <div class="security-item">
+                                            <span class="security-label">Deletion Certificates:</span>
+                                            <span class="security-value" id="cfCertificates"></span>
+                                        </div>
+                                        <div class="security-item">
+                                            <span class="security-label">Security Parameter:</span>
+                                            <span class="security-value" id="cfSecurityParam"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>Performance Metrics</h4>
+                                    <div class="performance-metrics" id="cfPerformance"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Monitor Tab -->
+                <div class="tab-pane" id="monitor-tab">
+                    <div class="monitor-container">
+                        <h2><i class="fas fa-chart-line"></i> System Monitor</h2>
+                        
+                        <div class="monitor-grid">
+                            <div class="monitor-card">
+                                <h4>Python Environment</h4>
+                                <div class="monitor-content" id="pythonMonitor">
+                                    <div class="monitor-item">
+                                        <span class="monitor-label">Status:</span>
+                                        <span class="monitor-value" id="pythonStatusValue">Checking...</span>
+                                    </div>
+                                    <div class="monitor-item">
+                                        <span class="monitor-label">Version:</span>
+                                        <span class="monitor-value" id="pythonVersion">Unknown</span>
+                                    </div>
+                                    <div class="monitor-item">
+                                        <span class="monitor-label">Dependencies:</span>
+                                        <span class="monitor-value" id="pythonDeps">Checking...</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-secondary" id="installDepsBtn" style="display: none;">
+                                    <i class="fas fa-download"></i>
+                                    Install Dependencies
+                                </button>
+                            </div>
+
+                            <div class="monitor-card">
+                                <h4>System Resources</h4>
+                                <div class="monitor-content">
+                                    <div class="monitor-item">
+                                        <span class="monitor-label">Platform:</span>
+                                        <span class="monitor-value" id="platformInfo">Unknown</span>
+                                    </div>
+                                    <div class="monitor-item">
+                                        <span class="monitor-label">Node.js:</span>
+                                        <span class="monitor-value" id="nodeVersion">Unknown</span>
+                                    </div>
+                                    <div class="monitor-item">
+                                        <span class="monitor-label">Electron:</span>
+                                        <span class="monitor-value" id="electronVersion">Unknown</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="monitor-card">
+                                <h4>Recent Operations</h4>
+                                <div class="operations-log" id="operationsLog">
+                                    <div class="log-entry">
+                                        <span class="log-time">--:--:--</span>
+                                        <span class="log-message">No operations yet</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Tab -->
+                <div class="tab-pane" id="about-tab">
+                    <div class="about-container">
+                        <div class="about-header">
+                            <i class="fas fa-brain about-icon"></i>
+                            <h2>TECS Desktop</h2>
+                            <p class="about-subtitle">Thermodynamic Ephemeral Cognition System</p>
+                        </div>
+
+                        <div class="about-content">
+                            <div class="about-section">
+                                <h3>What is TECS?</h3>
+                                <p>TECS is a revolutionary framework that uses thermodynamic principles to create information transformations that are physically impossible to reverse. It implements the Information Bottleneck principle to extract functional essence while eliminating source correlation.</p>
+                            </div>
+
+                            <div class="about-section">
+                                <h3>Key Features</h3>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-fire"></i> Thermodynamic phase transitions</li>
+                                    <li><i class="fas fa-shield-alt"></i> Provably secure forgetting</li>
+                                    <li><i class="fas fa-brain"></i> Cognitive temperature calibration</li>
+                                    <li><i class="fas fa-lock"></i> Zero-knowledge deletion proofs</li>
+                                    <li><i class="fas fa-chart-line"></i> Performance monitoring</li>
+                                </ul>
+                            </div>
+
+                            <div class="about-section">
+                                <h3>Research Foundation</h3>
+                                <p>This implementation is based on cutting-edge research in cryptographic forgetting and thermodynamic information theory. The framework provides provable security guarantees grounded in fundamental physical principles.</p>
+                            </div>
+
+                            <div class="about-section">
+                                <h3>License</h3>
+                                <p>This work is dedicated to the public domain to prevent proprietary enclosure of forgetting technologies.</p>
+                            </div>
+
+                            <div class="about-section">
+                                <h3>Version Information</h3>
+                                <div class="version-info">
+                                    <div class="version-item">
+                                        <span class="version-label">TECS Desktop:</span>
+                                        <span class="version-value">v1.0.0</span>
+                                    </div>
+                                    <div class="version-item">
+                                        <span class="version-label">CF Framework:</span>
+                                        <span class="version-value">v1.0.0</span>
+                                    </div>
+                                    <div class="version-item">
+                                        <span class="version-label">Build Date:</span>
+                                        <span class="version-value" id="buildDate">Unknown</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <h3 id="loadingTitle">Processing...</h3>
+                <p id="loadingMessage">Please wait while the protocol executes</p>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div class="modal" id="settingsModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Settings</h3>
+                    <button class="modal-close" id="closeSettingsBtn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="pythonPath">Python Path</label>
+                        <input type="text" id="pythonPath" placeholder="Path to Python executable">
+                        <small>Leave empty to auto-detect</small>
+                    </div>
+                    <div class="setting-group">
+                        <label for="defaultSecurity">Default Security Level</label>
+                        <select id="defaultSecurity">
+                            <option value="128">Standard (128-bit)</option>
+                            <option value="256" selected>High (256-bit)</option>
+                            <option value="512">Ultra (512-bit)</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="enableTee">Enable TEE Support</label>
+                        <input type="checkbox" id="enableTee">
+                        <small>Trusted Execution Environment (if available)</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancelSettingsBtn">Cancel</button>
+                    <button class="btn btn-primary" id="saveSettingsBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
