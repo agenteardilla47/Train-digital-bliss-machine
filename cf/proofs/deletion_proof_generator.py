@@ -33,9 +33,11 @@ class DeletionProofGenerator:
         self.proof_history = []
         
         # Generate key pair for proof signing
+        # Ensure minimum key size of 1024 bits
+        key_size = max(security_parameter, 1024)
         self.private_key = rsa.generate_private_key(
             public_exponent=65537,
-            key_size=security_parameter
+            key_size=key_size
         )
         self.public_key = self.private_key.public_key()
         

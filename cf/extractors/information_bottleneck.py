@@ -116,6 +116,25 @@ class InformationBottleneckExtractor:
         
         return loss
     
+    def _compute_semantic_structure_loss(self, source: str, resonance: np.ndarray) -> float:
+        """Compute semantic structure loss for text"""
+        # Simplified semantic structure loss
+        if len(source) == 0:
+            return 0.0
+        
+        # Basic semantic features
+        word_count = len(source.split())
+        char_diversity = len(set(source)) / len(source)
+        
+        # Map to resonance space
+        resonance_norm = np.linalg.norm(resonance)
+        
+        # Calculate loss based on structure preservation
+        structure_loss = abs(word_count - resonance_norm * 10) / max(word_count, 1)
+        diversity_loss = abs(char_diversity - np.std(resonance)) / max(char_diversity, 0.1)
+        
+        return structure_loss + 0.1 * diversity_loss
+    
     def _text_functional_loss(self, source: Any, resonance: np.ndarray, 
                              requirements: Dict[str, Any]) -> float:
         """Compute functional loss for text generation tasks"""

@@ -239,9 +239,9 @@ class ResonanceSynthesizer:
         word = ''
         for i in range(length):
             if i % 2 == 0:
-                word += np.random.choice(consonants)
+                word += np.random.choice(list(consonants))
             else:
-                word += np.random.choice(vowels)
+                word += np.random.choice(list(vowels))
         
         return word
     
@@ -252,7 +252,7 @@ class ResonanceSynthesizer:
         
         word = ''
         for i in range(length):
-            word += np.random.choice(dramatic_chars)
+            word += np.random.choice(list(dramatic_chars))
         
         return word
     
@@ -263,7 +263,7 @@ class ResonanceSynthesizer:
         
         word = ''
         for i in range(length):
-            word += np.random.choice(all_chars)
+            word += np.random.choice(list(all_chars))
         
         return word
     
