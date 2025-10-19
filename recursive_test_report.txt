@@ -11,7 +11,7 @@ Success Rate: 100.00%
 ⚡ PERFORMANCE METRICS
 -------------------------
 Average Execution Time: 0.0000s
-Max Execution Time: 0.0002s
+Max Execution Time: 0.0001s
 Min Execution Time: 0.0000s
 Average Memory Usage: 0.00MB
 Max Memory Usage: 0.00MB
@@ -47,7 +47,7 @@ TREE_TRAVERSAL:
 
 MERGE_SORT:
   Success Rate: 100.0%
-  Average Time: 0.0001s
+  Average Time: 0.0000s
   Average Memory: 0.00MB
   Max Recursion Depth: 1
 
@@ -59,7 +59,7 @@ TOWER_OF_HANOI:
 
 QUICKSORT:
   Success Rate: 100.0%
-  Average Time: 0.0001s
+  Average Time: 0.0000s
   Average Memory: 0.00MB
   Max Recursion Depth: 1
 
