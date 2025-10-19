@@ -1,0 +1,73 @@
+🔬 COMPREHENSIVE RECURSIVE FUNCTION TEST REPORT
+============================================================
+
+📊 SUMMARY
+--------------------
+Total Tests Executed: 264
+Successful Tests: 264
+Failed Tests: 0
+Success Rate: 100.00%
+
+⚡ PERFORMANCE METRICS
+-------------------------
+Average Execution Time: 0.0001s
+Max Execution Time: 0.0100s
+Min Execution Time: 0.0000s
+Average Memory Usage: 0.00MB
+Max Memory Usage: 0.00MB
+Average Recursion Depth: 1.0
+Max Recursion Depth: 1
+
+🔧 FUNCTION BREAKDOWN
+--------------------
+
+FIBONACCI:
+  Success Rate: 100.0%
+  Average Time: 0.0000s
+  Average Memory: 0.00MB
+  Max Recursion Depth: 1
+
+FACTORIAL:
+  Success Rate: 100.0%
+  Average Time: 0.0000s
+  Average Memory: 0.00MB
+  Max Recursion Depth: 1
+
+BINARY_SEARCH:
+  Success Rate: 100.0%
+  Average Time: 0.0000s
+  Average Memory: 0.00MB
+  Max Recursion Depth: 1
+
+TREE_TRAVERSAL:
+  Success Rate: 100.0%
+  Average Time: 0.0000s
+  Average Memory: 0.00MB
+  Max Recursion Depth: 1
+
+MERGE_SORT:
+  Success Rate: 100.0%
+  Average Time: 0.0002s
+  Average Memory: 0.00MB
+  Max Recursion Depth: 1
+
+TOWER_OF_HANOI:
+  Success Rate: 100.0%
+  Average Time: 0.0000s
+  Average Memory: 0.00MB
+  Max Recursion Depth: 1
+
+QUICKSORT:
+  Success Rate: 100.0%
+  Average Time: 0.0004s
+  Average Memory: 0.00MB
+  Max Recursion Depth: 1
+
+DFS:
+  Success Rate: 100.0%
+  Average Time: 0.0000s
+  Average Memory: 0.00MB
+  Max Recursion Depth: 1
+
+============================================================
+Test completed successfully!
