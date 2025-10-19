@@ -539,6 +539,27 @@ class TECS:
                  collaborator_profile: Dict[str, Any]) -> Dict[str, Any]:
         """Execute the complete TECS protocol"""
         
+        # Input validation
+        if source_data is None:
+            raise ValueError("Source data cannot be None")
+        
+        if not isinstance(collaborator_profile, dict):
+            raise ValueError("Collaborator profile must be a dictionary")
+        
+        if 'entropy' not in collaborator_profile:
+            raise ValueError("Collaborator profile must contain 'entropy' field")
+        
+        # Validate entropy value
+        entropy = collaborator_profile['entropy']
+        if not isinstance(entropy, (int, float)) or not (0 <= entropy <= 1):
+            raise ValueError("Collaborator entropy must be a number between 0 and 1")
+        
+        # Validate source data size
+        source_size = self._get_data_size(source_data)
+        max_size = 1024 * 1024 * 1024  # 1GB limit
+        if source_size > max_size:
+            raise ValueError(f"Source data too large: {source_size} bytes (max: {max_size})")
+        
         start_time = time.time()
         
         # Phase I: Establish criticality
@@ -657,6 +678,21 @@ class TECS:
         elif isinstance(data, (list, np.ndarray)):
             return len(set(data)) / len(data) if len(data) > 0 else 0
         return 0.0
+    
+    def _get_data_size(self, data: Any) -> int:
+        """Get size of data in bytes"""
+        if isinstance(data, str):
+            return len(data.encode('utf-8'))
+        elif isinstance(data, (list, tuple)):
+            return sum(self._get_data_size(item) for item in data)
+        elif isinstance(data, dict):
+            return sum(self._get_data_size(k) + self._get_data_size(v) for k, v in data.items())
+        elif hasattr(data, 'nbytes'):
+            return data.nbytes
+        elif hasattr(data, '__len__'):
+            return len(data) * 8  # Estimate
+        else:
+            return len(str(data).encode('utf-8'))
     
     def verify_thermodynamic_impossibility(self, output: Any, 
                                           source_space: Dict[str, Any]) -> bool:
