@@ -33,7 +33,11 @@ class InformationBottleneckExtractor:
         """
         self.target_dims = target_dims
         self.mi_penalty = mutual_info_penalty
-        self.mine_estimator = MINEEstimator()
+        self.mine_estimator = MINEEstimator(
+            learning_rate=0.001,
+            batch_size=64,
+            epochs=50
+        )
         self.extraction_history = []
         
     def extract(self, source_data: Any, 
