@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "main": "dist/main.js",
+  "bin": {
+    "zerofold": "dist/main.js"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
-    "start": "node dist/index.js",
-    "dev": "tsx watch src/index.ts",
+    "start": "node dist/main.js",
+    "dev": "tsx watch src/main.ts",
     "demo": "tsx src/demo/demo.ts",
     "test": "vitest run",
     "test:watch": "vitest"

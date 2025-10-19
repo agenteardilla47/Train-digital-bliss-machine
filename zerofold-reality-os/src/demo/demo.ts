@@ -1,4 +1,4 @@
-import { RealityKernel, Reducer, Event } from "../index.js";
+import { RealityKernel, Reducer, Event } from "../index";
 
 const reducer: Reducer = (state, event) => {
   if (event.type === "add") {
