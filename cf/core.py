@@ -91,6 +91,22 @@ class CryptographicForgetting:
         Returns:
             ForgettingResult containing output, proof, and metadata
         """
+        # Input validation
+        if source_data is None:
+            raise ValueError("Source data cannot be None")
+        
+        if not isinstance(functional_requirements, dict):
+            raise ValueError("Functional requirements must be a dictionary")
+        
+        if not functional_requirements:
+            raise ValueError("Functional requirements cannot be empty")
+        
+        # Validate source data size limits
+        source_size = self._get_data_size(source_data)
+        max_size = 1024 * 1024 * 1024  # 1GB limit
+        if source_size > max_size:
+            raise ValueError(f"Source data too large: {source_size} bytes (max: {max_size})")
+        
         start_time = time.time()
         
         # Phase 1: Intent Crystallization
@@ -177,6 +193,21 @@ class CryptographicForgetting:
         tee_overhead = source_size if self.use_tee else 0
         
         return base_memory + resonance_memory + intermediate_memory + tee_overhead
+    
+    def _get_data_size(self, data: Any) -> int:
+        """Get size of data in bytes"""
+        if isinstance(data, str):
+            return len(data.encode('utf-8'))
+        elif isinstance(data, (list, tuple)):
+            return sum(self._get_data_size(item) for item in data)
+        elif isinstance(data, dict):
+            return sum(self._get_data_size(k) + self._get_data_size(v) for k, v in data.items())
+        elif hasattr(data, 'nbytes'):
+            return data.nbytes
+        elif hasattr(data, '__len__'):
+            return len(data) * 8  # Estimate
+        else:
+            return len(str(data).encode('utf-8'))
     
     def get_security_guarantees(self) -> Dict[str, str]:
         """
